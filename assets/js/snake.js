@@ -50,6 +50,9 @@ function gameEngine() {
     // If user eat food increment score and change food co-ordinated
     if(snakeArr[0].y === foodLoc.y && snakeArr[0].x === foodLoc.x ){
         foodSound.play();
+        if(score%5==0){
+            speed+=2;
+        }
         score += 1;
         scorevalue = JSON.parse(localStorage.getItem('highscore'));
         if(score>scorevalue){
