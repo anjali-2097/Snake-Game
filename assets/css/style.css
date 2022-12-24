@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chivo+Mono:wght@800&display=swap');
 body{
     background-color: green;
     background-image: url('../images/bg_img.jpg');
@@ -10,6 +11,20 @@ body{
     margin: 0;
     padding: 0;
     flex-direction: column;
+}
+.displayscore{
+    font-family: 'Chivo Mono', monospace;
+    display: inline-flex;
+    font-size: 20px;
+}
+#scoreDisplay{
+    margin-right: 390px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#highScore{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .score{
     text-align: right;
