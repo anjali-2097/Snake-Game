@@ -9,9 +9,15 @@ let speed = 5;
 let lastPaintTime = 0;
 let snakeArr = [{ x:10, y:13 }]
 foodLoc = { x:13, y:15}
+let isRunning = true
 
 // Game Functions
 function main(ctime){
+    if(!isRunning){
+        bgSound.pause();
+        gameEngine()
+        return;
+    }
     window.requestAnimationFrame(main);
     if((ctime-lastPaintTime)/1000 < 1/speed){
         return;
@@ -40,6 +46,7 @@ function gameEngine() {
         bgSound.pause();
         direction = { x:0, y:0 };
         alert("Game Over. Press any key to play again!!")
+        speed = 5;
         scorevalue = 0;
         scoreDisplay.innerHTML = "Score: " + scorevalue
         snakeArr = [{ x:10, y:13 }]
@@ -94,6 +101,16 @@ function gameEngine() {
         snakeFood.classList.add('snake-food');
         board.appendChild(snakeFood);
 }
+
+  window.onkeydown = function(event){
+    if(event.keyCode === 32) {
+        isRunning=!isRunning;
+        if(isRunning){
+            bgSound.play();
+            window.requestAnimationFrame(main);
+        }
+    }
+};
 
 // Main logic
 highscore = localStorage.getItem('highscore');
